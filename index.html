@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Исчезнувшие виды растений</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Добавляем Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -13,9 +15,11 @@
     <header>
         <div class="container">
             <nav class="header-content">
-                <div class="logo">ИСЧЕЗНУВШИЕ ВИДЫ</div>
-                <a href="#" class="mob-btn">=</a>
-                <ul class="navigation-holder">
+                <div class="logo">
+                    <img src="./images/logo-earthhand.png" alt="#" class="logo-image">
+                </div>
+                <a href="#" class="mob-btn" id="mobileMenuBtn">=</a>
+                <ul class="navigation-holder" id="mainNavigation">
                     <li class="nav-links">
                         <a href="#">Главная</a>
                     </li>
@@ -42,7 +46,7 @@
             <h1 class="hero-title">Исчезнувшие виды растений</h1>
             <p class="hero-subtitle">Память о растениях, которые мы потеряли навсегда. Изучаем причины их исчезновения и
                 учимся сохранять то, что осталось.</p>
-            <a href="#" class="btn">Узнать больше</a>
+            <a href="#" class="btn" id="learnMoreBtn">Узнать больше</a>
         </div>
     </section>
 
@@ -64,7 +68,7 @@
                         </div>
                         <p class="plant-desc">Легендарное растение, широко использовавшееся в Древнем Риме и Древней
                             Греции в качестве приправы, лекарства и контрацептива.</p>
-                        <a href="#" class="btn">Подробнее</a>
+                        <a href="#" class="btn plant-details-btn" data-plant="silfii">Подробнее</a>
                     </div>
                 </div>
 
@@ -81,7 +85,7 @@
                         </div>
                         <p class="plant-desc">Эндемичное дерево, последний экземпляр которого погиб в 1994 году. Символ
                             хрупкости островных экосистем.</p>
-                        <a href="#" class="btn">Подробнее</a>
+                        <a href="#" class="btn plant-details-btn" data-plant="st_helena">Подробнее</a>
                     </div>
                 </div>
 
@@ -98,7 +102,7 @@
                         </div>
                         <p class="plant-desc">Красивое дерево с белыми цветами, в дикой природе не встречается с 1803
                             года. Сохранилось только в ботанических садах.</p>
-                        <a href="#" class="btn">Подробнее</a>
+                        <a href="#" class="btn plant-details-btn" data-plant="franklinia">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -138,6 +142,20 @@
                 </div>
             </div>
         </section>
+
+        <!-- Modal для деталей растения -->
+        <div id="plantModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalPlantName"></h2>
+                <div id="modalPlantContent"></div>
+            </div>
+        </div>
+
+        <!-- Кнопка "Наверх" -->
+        <button id="scrollToTopBtn" class="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </main>
 
     <!-- Footer -->
@@ -145,7 +163,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Исчезнувшие виды</h3>
+                    <div class="footer-logo">
+                        <img src="./images/logo-earthhand.png" alt="#" class="logo-image">
+                    </div>
                     <p>Наш проект посвящен памяти растений, которые мы потеряли навсегда, и защите тех, что еще можно
                         спасти.</p>
                     <div class="social-links">
@@ -175,7 +195,7 @@
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul>
-                        <li>Email: **********@gmail.ru</li>
+                        <li>Email: info@extinct-plants.ru</li>
                         <li>Телефон: +7 (999) 999-99-99</li>
                         <li>Адрес: Москва, ул. Ботаническая, 24</li>
                     </ul>
@@ -187,19 +207,7 @@
         </div>
     </footer>
 
-    <!-- Chatra -->
-    <script>
-        (function (d, w, c) {
-            w.ChatraID = 'wndHt4YBPbHdZq8RA';
-            var s = d.createElement('script');
-            w[c] = w[c] || function () {
-                (w[c].q = w[c].q || []).push(arguments);
-            };
-            s.async = true;
-            s.src = 'https://call.chatra.io/chatra.js';
-            if (d.head) d.head.appendChild(s);
-        })(document, window, 'Chatra');
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
